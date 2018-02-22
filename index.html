@@ -11,6 +11,29 @@
     </div>
     <script>
       // your code here
+     var dodger = document.getElementById('dodger');
+      function moveDodgerLeft(left) {       
+        if (left > 0) {
+          dodger.style.left = `${left - 1}px`
+        }
+      };
+
+      function moveDodgerRight(left) {         
+        if (left < 360) {
+          dodger.style.left = `${left + 1}px`
+        }
+      };
+
+      document.addEventListener('keydown', function(e) {
+        var leftNumbers = dodger.style.left.replace('px', '')
+        var left = parseInt(leftNumbers, 10)
+        if (e.which === 37) {
+          moveDodgerLeft(left)
+        } else if(e.which === 39){
+          moveDodgerRight(left)
+        }
+      });
+
     </script>
   </body>
 </html>
