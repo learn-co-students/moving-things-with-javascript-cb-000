@@ -10,7 +10,42 @@
       <div id="dodger" style="bottom: 0px; left: 180px;"></div>
     </div>
     <script>
-      // your code here
+
+      var dodger = document.getElementById("dodger")
+
+      const directions = {'37':'left', '39': 'right', '40': 'bottom', '38' : 'top'}
+
+      document.addEventListener('keydown', function(e) {
+          var direction = directions[e.which.toString()]
+          console.log(direction)
+          if(direction) {
+            moveDodger(direction)
+          }
+      })
+
+    function moveDodger(direction) {
+      var leftNumbers = dodger.style.left.replace('px', '')
+      var l_numbers = parseInt(leftNumbers, 10)
+
+      var bottomNumbers = dodger.style.bottom.replace('px', '')
+      var b_numbers = parseInt(bottomNumbers, 10)
+
+        switch(direction) {
+          case('right'):
+            dodger.style.left = `${l_numbers+1}px`
+            break
+          case('left'):
+            dodger.style.left = `${l_numbers-1}px`
+            break
+          case('top'):
+            dodger.style.bottom = `${b_numbers+1}px`
+            break
+          case('bottom'):
+            dodger.style.bottom = `${b_numbers-1}px`
+            break
+        }
+      }
+
     </script>
   </body>
 </html>

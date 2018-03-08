@@ -3,6 +3,8 @@
   height: 20px;
   position: absolute;
   width: 40px;
+  left: 100px ;
+  bottom: 10px ;
 }
 
 #game {
