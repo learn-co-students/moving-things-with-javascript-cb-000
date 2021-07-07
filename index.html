@@ -9,8 +9,80 @@
     <div id="game">
       <div id="dodger" style="bottom: 0px; left: 180px;"></div>
     </div>
+    <center>Note:  Need to use constants if I ever fix this.</center>
     <script>
       // your code here
+      var dodger = document.getElementById('dodger');
+      dodger.style.backgroundColor = '#FF69B4';
+
+      document.addEventListener('keydown', function(e) {
+        console.log(`Key:  ${e.which}`);
+        //left arrow
+        if (e.which === 37) {
+
+          moveDodgerLeft();
+        }
+        //right arrow
+        if (e.which === 39) {
+          moveDodgerRight();
+        }
+
+        //up arrow
+        if (e.which === 38) {
+          moveDodgerUp();
+        }
+
+        if (e.which === 40) {
+          moveDodgerDown();
+        }
+      })
+
+      function moveDodgerLeft() {
+        var leftNumbers = dodger.style.left.replace('px', '')
+        var left = parseInt(leftNumbers, 10)
+
+        if (left > 0) {
+          dodger.style.left = `${left-5}px`;
+          console.log(`Dodger new position:  ${dodger.style.left}`)
+        }
+      }
+
+      function moveDodgerRight() {
+        var rightNumbers = dodger.style.left.replace('px', '')
+        var right = parseInt(rightNumbers, 10);
+
+        if (right < 360) {
+          dodger.style.left = `${right+5}px`;
+          console.log(`Dodger new position:  ${dodger.style.left}`)
+        }
+      }
+
+      function moveDodgerUp() {
+      //  var upNumbers = dodger.style.
+        console.log("Moving dodger up");
+        var upNumbers = dodger.style.bottom.replace('px', '')
+        var up = parseInt(upNumbers, 10);
+
+        if (up < 380) {
+          dodger.style.bottom = `${up+5}px`;
+
+        }
+        console.log(`Dodger new position: ${dodger.style.bottom}`);
+      }
+
+      function moveDodgerDown() {
+        var downNumbers = dodger.style.bottom.replace('px', '')
+        var down = parseInt(downNumbers, 10);
+
+        if (down > 0) {
+          dodger.style.bottom = `${down-5}px`;
+        }
+        console.log(`Dodger new position: ${dodger.style.bottom}`);
+      }
+
+
+
+
     </script>
   </body>
 </html>
